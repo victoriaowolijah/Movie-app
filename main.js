@@ -1,3 +1,9 @@
+/***
+TODO: 
+1. Label all your methods (functions) and explain what they do.
+
+***/
+
 const APIURL =
   "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=74a4e95735194bf1f37fbc264a74797b";
 const IMGPATH = "https://image.tmdb.org/t/p/w500";
@@ -39,7 +45,6 @@ function showMovies(data) {
         <div class = "overview">
         <h3>Overview</h3>
         ${overview}
-
         `
         main.appendChild(movieE1);
     });
@@ -61,7 +66,9 @@ function getColor(vote) {
         const searchTerm = search.value;
         
         if(search){
-            getMovies(searchTerm+ '&query' +searchURL);
+            // getMovies(searchTerm+ '&query' +searchURL);
+            // ref: https://developers.themoviedb.org/3/search/search-movies
+            getMovies(`${searchURL}&query=${searchTerm}&language=${'en-US'}&include_adult=${false}`);
         }else{
             getMovies(APIURL);
         }
