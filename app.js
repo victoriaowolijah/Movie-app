@@ -2,13 +2,19 @@
 // const searchMovie = (API, Keyword) =>   `https://api.themoviedb.org/3/movie/550?api_key=${API}&query=${Keyword}`;
 //const IMGPATH = "https://www.themoviedb.org/movie/";
 
-const key ="74a4e95735194bf1f37fbc264a74797b";
-const APIURL =
-  "https://api.themoviedb.org/3/movie/550?api_key=74a4e95735194bf1f37fbc264a74797b";
 
-const IMGPATH = "https://image.tmdb.org/t/p/w220_and_h330_face";
+//const APIURL =
+ // "https://api.themoviedb.org/3/movie/550?api_key=74a4e95735194bf1f37fbc264a74797b";
+const APIURL =
+  "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=74a4e95735194bf1f37fbc264a74797b";
+
+//const IMGPATH = "https://image.tmdb.org/t/p/w220_and_h330_face";
+const IMGPATH = "https://image.tmdb.org/t/p/w500";
+
+//const SEARCHAPI =
+ // "https://api.themoviedb.org/3/movie/550?api_key=74a4e95735194bf1f37fbc264a74797b&query=";
 const SEARCHAPI =
-  "https://api.themoviedb.org/3/movie/550?api_key=74a4e95735194bf1f37fbc264a74797b&query=";
+  "https://api.themoviedb.org/3/search/movie?api_key=74a4e95735194bf1f37fbc264a74797b&query=";
 
 const main = document.getElementById("content");
 const form = document.getElementById("form");
@@ -19,8 +25,8 @@ getMovies(APIURL);
 async function getMovies(url) {
   const response = await fetch(url);
   const data = await response.json();
-  // console.log(data);
-  showMovies(data);
+  console.log(data.results);
+  showMovies(data.results);
 }
 
 function showMovies(movies) {
